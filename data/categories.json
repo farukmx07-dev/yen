@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "52e75dc1-032f-4550-bc48-b3c9ad329cc8",
+    "name": "Telefon & Aksesuar",
+    "slug": "telefon-aksesuar",
+    "description": "Akıllı telefonlar ve aksesuarları",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "9c445610-47f9-4985-b240-dff1355b1d9c",
+    "name": "Elektronik",
+    "slug": "elektronik",
+    "description": "Elektronik ürünler",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "6d13380a-81ee-4041-870b-4dc894d16a14",
+    "name": "Mutfak",
+    "slug": "mutfak",
+    "description": "Mutfak gereçleri ve aletleri",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "c7b7dc66-355d-4240-9e00-511b81e0902d",
+    "name": "Kadın Spor Ayakkabı",
+    "slug": "kadin-spor-ayakkabi",
+    "description": "Kadın spor ayakkabıları",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "976394a5-5a70-4173-babc-942d947253c7",
+    "name": "Kozmetik & Kişisel Bakım",
+    "slug": "kozmetik-kisisel-bakim",
+    "description": "Kozmetik ve kişisel bakım ürünleri",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "463a662f-591a-4be8-8f2a-ed4c2e601c99",
+    "name": "Kitap & Kırtasiye",
+    "slug": "kitap-kirtasiye",
+    "description": "Kitap ve kırtasiye ürünleri",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "a6ad189b-87e5-4827-9f38-b5c732fc2e38",
+    "name": "Erkek Spor Ayakkabı",
+    "slug": "erkek-spor-ayakkabi",
+    "description": "Erkek spor ayakkabıları",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "8d45a968-27e6-4ad8-8282-ed501661d4fb",
+    "name": "Çanta & Valiz",
+    "slug": "canta-valiz",
+    "description": "Çanta ve valiz çeşitleri",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "7af72b04-7fec-4071-8e75-60bcb45a4d9c",
+    "name": "Ev & Yaşam",
+    "slug": "ev-yasam",
+    "description": "Ev ve yaşam ürünleri",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  },
+  {
+    "_id": "86cd306d-4fe9-41ac-a267-bdf114790db6",
+    "name": "Giyim & Aksesuar",
+    "slug": "giyim-aksesuar",
+    "description": "Giyim ve aksesuar ürünleri",
+    "createdAt": "2026-06-18T21:57:27.257Z",
+    "updatedAt": "2026-06-18T21:57:27.257Z"
+  }
+]

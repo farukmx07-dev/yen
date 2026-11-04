@@ -1,0 +1,61 @@
+{
+  "name": "modern-market-admin",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "create-test-user": "node scripts/create-test-user.js",
+    "dev": "node scripts/next-dev.js",
+    "dev:fast": "node scripts/next-dev.js --no-clean",
+    "build": "node scripts/next-build.js",
+    "postbuild": "node scripts/prepare-standalone.js",
+    "start": "node scripts/next-start.js",
+    "plesk:start": "node app.js",
+    "run": "npm run build && npm start",
+    "lint": "next lint",
+    "seed:categories": "node scripts/seed-categories.js",
+    "seed:products": "node scripts/seed-products.js",
+    "import:a101": "node scripts/import-a101-products.js",
+    "seed:all": "node scripts/seed-categories.js && node scripts/import-a101-products.js",
+    "create:admin": "node scripts/create-admin.js",
+    "load-test": "node scripts/load-test-online.js",
+    "load-test:60": "node scripts/load-test-online.js --preset 60",
+    "load-test:100": "node scripts/load-test-online.js --preset 100",
+    "load-test:suite": "node scripts/load-test-online.js --suite",
+    "load-test:heavy": "node scripts/load-test-online.js --preset heavy",
+    "load-test:stress": "node scripts/load-test-online.js --preset stress",
+    "db:migrate": "node scripts/migrate-json-to-mysql.js",
+    "docker:up": "docker compose up --build -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f app"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.22.5",
+    "next": "14.2.5",
+    "postcss": "^8.4.39",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.2.0",
+    "recharts": "^2.12.7",
+    "sharp": "^0.35.2",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^3.4.7",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/ws": "^8.18.1",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5.5.4"
+  }
+}

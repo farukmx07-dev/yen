@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "82e7cade-48f0-4ed3-a528-d79c9097fa2f",
+    "username": "master",
+    "password": "$2a$10$qdtO7p//PjnRoNKquyFm2.VBHXIWM9awKS0hl6UGlVDI5MNpcWhSW",
+    "name": "Master Admin",
+    "email": "master@site.com",
+    "role": "superadmin",
+    "createdAt": "2026-06-18T21:53:44.031Z",
+    "updatedAt": "2026-06-22T22:22:53.464Z"
+  }
+]

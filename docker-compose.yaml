@@ -1,0 +1,71 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+        NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:3000}
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      BIND_HOST: 0.0.0.0
+      HOSTNAME: 0.0.0.0
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: ${MYSQL_USER:-market}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-market_secret_change_me}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-market}
+      MYSQL_POOL_SIZE: ${MYSQL_POOL_SIZE:-20}
+      NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+      NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL:-http://localhost:3000}
+      SITE_URL: ${SITE_URL:-http://localhost:3000}
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      RUN_DB_MIGRATE: ${RUN_DB_MIGRATE:-true}
+      ILETI_MERKEZI_API_URL: ${ILETI_MERKEZI_API_URL:-}
+      ILETI_MERKEZI_KEY: ${ILETI_MERKEZI_KEY:-}
+      ILETI_MERKEZI_HASH: ${ILETI_MERKEZI_HASH:-}
+      ILETI_MERKEZI_SENDER: ${ILETI_MERKEZI_SENDER:-}
+      SMS_BYPASS: ${SMS_BYPASS:-false}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --max_connections=200
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_secret_change_me}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-market}
+      MYSQL_USER: ${MYSQL_USER:-market}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-market_secret_change_me}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  mysql_data:

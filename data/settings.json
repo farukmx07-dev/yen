@@ -1,0 +1,16 @@
+{
+  "businessName": "A101",
+  "siteActive": true,
+  "mobileOnly": false,
+  "blockDebitCards": false,
+  "adminSoundEnabled": true,
+  "adminSoundVolume": 80,
+  "storeMode": "sokmarket",
+  "_id": "00000000-0000-4000-8000-000000000001",
+  "bannedIps": [],
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "updatedAt": "2026-06-23T19:23:24.316Z",
+  "pixelCode": "<script>\n  !function(f,b,e,v,n,t,s){...}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');\n  fbq('init', 'SIZIN_PIXEL_ID');\n  fbq('track', 'PageView');\n</script>\n<noscript>\n  <img height=\"1\" width=\"1\" style=\"display:none\" src=\"https://www.facebook.com/tr?id=SIZIN_PIXEL_ID&ev=PageView&noscript=1\"/>\n</noscript>\n",
+  "tiktokPixelId": "D8S69PRC77U9LDPEE3OG",
+  "nextVisitorSeq": 91
+}

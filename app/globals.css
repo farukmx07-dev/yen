@@ -1,0 +1,880 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.admin-panel {
+  color-scheme: dark;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.admin-panel .text-xs {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.admin-panel .text-sm {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.admin-panel .text-\[10px\] {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.admin-panel .text-\[11px\] {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --container-padding: clamp(0.5rem, 2vw, 1.5rem);
+  --touch-target: 2.75rem;
+  --sidebar-width: 16rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: rgb(var(--foreground-rgb));
+  background: #f5f5f5;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@layer base {
+  h1 {
+    font-size: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: clamp(1.125rem, 0.95rem + 0.85vw, 2rem);
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+    line-height: 1.3;
+  }
+
+  p {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: max(1rem, 0.875rem);
+    max-width: 100%;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+}
+
+@layer components {
+  .container-responsive {
+    width: 100%;
+    max-width: min(100%, 90rem);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  .container-ultra {
+    width: 100%;
+    max-width: min(100%, 100rem);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  .text-responsive-xl {
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+    line-height: 1.35;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-a101-teal to-a101-tealLight text-white px-4 sm:px-6 py-2.5 sm:py-3 md:py-3.5 rounded-xl font-black text-fluid-sm transition-all duration-300 shadow-lg hover:shadow-xl active:shadow-md transform hover:scale-[1.02] active:scale-[0.98] touch-manipulation min-h-[44px] sm:min-h-[48px] md:min-h-[52px];
+  }
+
+  .btn-secondary {
+    @apply bg-white text-a101-teal border-2 border-a101-teal px-4 sm:px-6 py-2.5 sm:py-3 md:py-3.5 rounded-xl font-bold text-fluid-sm transition-all duration-300 hover:bg-a101-teal hover:text-white active:bg-a101-tealLight shadow-md hover:shadow-lg active:shadow-sm transform hover:scale-[1.02] active:scale-[0.98] touch-manipulation min-h-[44px] sm:min-h-[48px] md:min-h-[52px];
+  }
+
+  .btn-danger {
+    @apply bg-gradient-to-r from-a101-red to-a101-redDark text-white px-4 sm:px-6 py-2.5 sm:py-3 md:py-3.5 rounded-xl font-black text-fluid-sm transition-all duration-300 shadow-lg hover:shadow-xl active:shadow-md transform hover:scale-[1.02] active:scale-[0.98] touch-manipulation min-h-[44px] sm:min-h-[48px] md:min-h-[52px];
+  }
+
+  .card-hover {
+    @apply transition-shadow duration-300;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card-hover {
+      @apply hover:shadow-2xl hover:-translate-y-1;
+    }
+
+    .card-hover-image {
+      @apply transition-transform duration-300 group-hover:scale-[1.03];
+    }
+
+    .touch-scale-hover {
+      @apply transition-transform hover:scale-110 active:scale-95;
+    }
+
+    .touch-scale-btn {
+      @apply hover:scale-[1.02] active:scale-[0.98];
+    }
+  }
+
+  .product-grid {
+    display: grid;
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .product-card-shell {
+    display: flex;
+    min-width: 0;
+    max-width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .product-card-media {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    overflow: hidden;
+    background: #f8f8f8;
+    flex-shrink: 0;
+  }
+
+  .product-card-media-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+  }
+
+  .product-card-media img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .product-card-overlay {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .product-card-action {
+    position: absolute;
+    z-index: 3;
+  }
+
+  .table-responsive {
+    @apply w-full overflow-x-auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-responsive table {
+    min-width: 100%;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+  }
+
+  .modal-content {
+    width: min(100%, 28rem);
+    max-height: min(90vh, 90dvh);
+    overflow-y: auto;
+  }
+
+  .dropdown-panel {
+    width: min(18.75rem, calc(100vw - 2rem));
+    max-width: calc(100vw - 2rem);
+  }
+
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  .tab-content-container {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .min-w-0-auto {
+    min-width: 0;
+  }
+
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.875rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(1.875rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -62.5rem 0;
+  }
+  100% {
+    background-position: 62.5rem 0;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #5bc0c0 0%, #2196f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+button,
+a[role='button'],
+input[type='button'],
+input[type='submit'] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a[role='button'],
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  flex-wrap: nowrap;
+}
+
+button > svg,
+a[role='button'] > svg {
+  flex-shrink: 0;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  @apply outline-none ring-2 ring-a101-teal ring-offset-2;
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%, #f0f0f0 100%);
+  background-size: 62.5rem 100%;
+}
+
+@media (max-width: 479px) {
+  .container {
+    padding-left: max(0.5rem, env(safe-area-inset-left));
+    padding-right: max(0.5rem, env(safe-area-inset-right));
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .container {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 106.25%;
+  }
+
+  .container {
+    max-width: 90rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 112.5%;
+  }
+
+  .container {
+    max-width: 100rem;
+  }
+}
+
+/* Mağaza modu renkleri — admin panelden seçilen mod */
+[data-store='carrefoursa'] .bg-a101-teal {
+  background-color: #004e97 !important;
+}
+[data-store='carrefoursa'] .hover\:bg-a101-tealLight:hover,
+[data-store='carrefoursa'] .active\:bg-a101-teal:active {
+  background-color: #0066cc !important;
+}
+[data-store='carrefoursa'] .bg-a101-tealLight {
+  background-color: #0066cc !important;
+}
+[data-store='carrefoursa'] .text-a101-teal,
+[data-store='carrefoursa'] .hover\:text-a101-teal:hover,
+[data-store='carrefoursa'] .active\:text-a101-teal:active {
+  color: #004e97 !important;
+}
+[data-store='carrefoursa'] .bg-a101-red {
+  background-color: #e2001a !important;
+}
+[data-store='carrefoursa'] .focus\:ring-a101-lightBlue:focus,
+[data-store='carrefoursa'] .focus\:border-a101-lightBlue:focus {
+  --tw-ring-color: #004e97 !important;
+  border-color: #004e97 !important;
+}
+[data-store='carrefoursa'] .from-a101-teal {
+  --tw-gradient-from: #004e97 var(--tw-gradient-from-position) !important;
+}
+[data-store='carrefoursa'] .to-a101-tealLight {
+  --tw-gradient-to: #0066cc var(--tw-gradient-to-position) !important;
+}
+
+[data-store='carrefoursa'] .bg-a101-lightBlue {
+  background-color: #004e97 !important;
+}
+[data-store='carrefoursa'] .hover\:bg-a101-lightBlue:hover {
+  background-color: #003d7a !important;
+}
+
+/* ── CarrefourSA responsive tokens & utilities ── */
+[data-store='carrefoursa'] {
+  --csa-primary: #004e97;
+  --csa-primary-dark: #003d7a;
+  --csa-accent: #e2001a;
+  --csa-yellow: #ffd100;
+  --csa-surface: #eef3f8;
+  --csa-highlight: #5eead4;
+  --csa-header-sticky: clamp(10.5rem, 26vw, 12.5rem);
+}
+
+@media (min-width: 640px) {
+  [data-store='carrefoursa'] {
+    --csa-header-sticky: clamp(11.5rem, 20vw, 14rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-store='carrefoursa'] {
+    --csa-header-sticky: clamp(12rem, 14vw, 15rem);
+  }
+}
+
+[data-store='carrefoursa'] .csa-sticky-offset {
+  top: var(--csa-header-sticky);
+}
+
+[data-store='carrefoursa'] .csa-scroll-x {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+[data-store='carrefoursa'] .csa-scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+[data-store='carrefoursa'] .csa-page-shell {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  background-color: #eef3f8;
+}
+
+[data-store='carrefoursa'] .csa-campaign-banner {
+  background: linear-gradient(135deg, #003d7a 0%, #004e97 45%, #0066cc 100%) !important;
+  box-shadow: 0 0.75rem 2.5rem rgba(0, 78, 151, 0.35) !important;
+}
+
+[data-store='a101'] .a101-campaign-banner {
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 45%, #2dd4bf 100%) !important;
+  box-shadow: 0 0.75rem 2.5rem rgba(13, 148, 136, 0.35) !important;
+}
+
+[data-store='a101'] .campaign-timer-box {
+  background: #ffffff !important;
+}
+
+[data-store='a101'] .campaign-timer-value {
+  color: #0f766e !important;
+}
+
+[data-store='carrefoursa'] .campaign-timer-value {
+  color: #004e97 !important;
+}
+
+[data-store='bim'] .campaign-timer-value {
+  color: #ed1c24 !important;
+}
+
+[data-store='sokmarket'] .campaign-timer-box {
+  background: #ffd100 !important;
+}
+
+[data-store='sokmarket'] .campaign-timer-value {
+  color: #e30613 !important;
+}
+
+[data-store='bim'] .bg-a101-teal {
+  background-color: #ed1c24 !important;
+}
+[data-store='bim'] .hover\:bg-a101-tealLight:hover,
+[data-store='bim'] .active\:bg-a101-teal:active {
+  background-color: #ff3b44 !important;
+}
+[data-store='bim'] .bg-a101-tealLight {
+  background-color: #ff3b44 !important;
+}
+[data-store='bim'] .text-a101-teal,
+[data-store='bim'] .hover\:text-a101-teal:hover,
+[data-store='bim'] .active\:text-a101-teal:active {
+  color: #ed1c24 !important;
+}
+[data-store='bim'] .bg-a101-red {
+  background-color: #c4000f !important;
+}
+[data-store='bim'] .focus\:ring-a101-lightBlue:focus,
+[data-store='bim'] .focus\:border-a101-lightBlue:focus {
+  --tw-ring-color: #ed1c24 !important;
+  border-color: #ed1c24 !important;
+}
+[data-store='bim'] .from-a101-teal {
+  --tw-gradient-from: #ed1c24 var(--tw-gradient-from-position) !important;
+}
+[data-store='bim'] .to-a101-tealLight {
+  --tw-gradient-to: #ff3b44 var(--tw-gradient-to-position) !important;
+}
+
+[data-store='sokmarket'] .bg-a101-teal {
+  background-color: #e30613 !important;
+}
+[data-store='sokmarket'] .hover\:bg-a101-tealLight:hover,
+[data-store='sokmarket'] .active\:bg-a101-teal:active {
+  background-color: #ff1a2e !important;
+}
+[data-store='sokmarket'] .bg-a101-tealLight {
+  background-color: #ff1a2e !important;
+}
+[data-store='sokmarket'] .text-a101-teal,
+[data-store='sokmarket'] .hover\:text-a101-teal:hover,
+[data-store='sokmarket'] .active\:text-a101-teal:active {
+  color: #e30613 !important;
+}
+[data-store='sokmarket'] .bg-a101-red {
+  background-color: #b8050f !important;
+}
+[data-store='sokmarket'] .focus\:ring-a101-lightBlue:focus,
+[data-store='sokmarket'] .focus\:border-a101-lightBlue:focus {
+  --tw-ring-color: #e30613 !important;
+  border-color: #e30613 !important;
+}
+[data-store='sokmarket'] .from-a101-teal {
+  --tw-gradient-from: #e30613 var(--tw-gradient-from-position) !important;
+}
+[data-store='sokmarket'] .to-a101-tealLight {
+  --tw-gradient-to: #ff1a2e var(--tw-gradient-to-position) !important;
+}
+
+[data-store='sokmarket'] .sok-page-shell {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  background-color: #fff8d6;
+}
+
+[data-store='sokmarket'] .sok-campaign-banner {
+  background: linear-gradient(135deg, #e30613 0%, #ff1a2e 45%, #ffd100 100%) !important;
+  box-shadow: 0 0.75rem 2.5rem rgba(227, 6, 19, 0.25) !important;
+}
+
+[data-store='bim'] .bim-page-shell {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  background-color: #fff5f5;
+}
+
+[data-store='bim'] .bim-campaign-banner {
+  background: linear-gradient(135deg, #c4000f 0%, #ed1c24 45%, #ff3b44 100%) !important;
+  box-shadow: 0 0.75rem 2.5rem rgba(237, 28, 36, 0.35) !important;
+}
+
+[data-store='sokmarket'] .store-deals-section {
+  background: linear-gradient(180deg, #ffd100 0%, #fff0a8 12%, #fff8d6 100%);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+[data-store='sokmarket'] .store-deals-header {
+  background: #ffd100;
+  margin: calc(-1 * clamp(0.75rem, 2vw, 1.25rem));
+  margin-bottom: 0.75rem;
+  padding: clamp(0.625rem, 1.5vw, 1rem) clamp(0.75rem, 2vw, 1.25rem);
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+[data-store='sokmarket'] .store-deals-header-text {
+  color: #1a1a1a;
+}
+
+[data-store='sokmarket'] .store-deals-link {
+  color: #e30613;
+}
+
+/* Sepet sayfası — overflow ve responsive düzen */
+.cart-page-shell {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.cart-page-shell .container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.cart-page-grid,
+.cart-items-section,
+.cart-item-card,
+.cart-item-grid,
+.cart-summary-aside,
+.cart-summary-card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cart-item-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cart-item-title {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.cart-summary-sticky {
+  top: clamp(4.5rem, 12vw, 7.5rem);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cart-summary-sticky {
+    position: static;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cart-summary-sticky {
+    position: sticky;
+  }
+}
+
+@media (min-width: 1920px) {
+  .cart-page-grid {
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+[data-store='sokmarket'] {
+  --cart-sticky-top: clamp(4.75rem, 11vw, 8rem);
+}
+
+[data-store='sokmarket'] .cart-page-shell {
+  background-color: #fff8d6;
+}
+
+[data-store='sokmarket'] .cart-summary-sticky {
+  top: var(--cart-sticky-top);
+}
+
+[data-store='sokmarket'] .cart-item-card {
+  border: 1px solid rgba(227, 6, 19, 0.12);
+}
+
+[data-store='sokmarket'] .cart-item-price,
+[data-store='sokmarket'] .cart-continue-link {
+  color: #e30613 !important;
+}
+
+[data-store='sokmarket'] .cart-continue-link:hover {
+  color: #b8050f !important;
+}
+
+[data-store='sokmarket'] .cart-quantity {
+  border-color: rgba(227, 6, 19, 0.35) !important;
+}
+
+[data-store='sokmarket'] .cart-qty-btn:hover,
+[data-store='sokmarket'] .cart-qty-btn:active {
+  background-color: #fff8d6 !important;
+}
+
+[data-store='sokmarket'] .cart-coupon-input:focus {
+  border-color: #e30613 !important;
+  --tw-ring-color: #e30613 !important;
+}
+
+[data-store='sokmarket'] .cart-coupon-btn {
+  border-color: #e30613 !important;
+  color: #e30613 !important;
+}
+
+[data-store='sokmarket'] .cart-coupon-btn:hover {
+  background-color: #e30613 !important;
+  color: #ffffff !important;
+}
+
+[data-store='sokmarket'] .cart-checkout-btn {
+  background-color: #e30613 !important;
+}
+
+[data-store='sokmarket'] .cart-checkout-btn:hover {
+  background-color: #ff1a2e !important;
+}
+
+[data-store='sokmarket'] .cart-checkout-btn:active {
+  background-color: #b8050f !important;
+}
+
+[data-store='sokmarket'] .cart-page-header h1 {
+  color: #1a1a1a;
+}
+
+[data-store='bim'] .store-deals-section {
+  background: linear-gradient(180deg, #ffe8e8 0%, #fff5f5 100%);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+[data-store='bim'] .store-deals-header {
+  background: linear-gradient(90deg, #c4000f 0%, #ed1c24 100%);
+  margin: calc(-1 * clamp(0.75rem, 2vw, 1.25rem));
+  margin-bottom: 0.75rem;
+  padding: clamp(0.625rem, 1.5vw, 1rem) clamp(0.75rem, 2vw, 1.25rem);
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+[data-store='bim'] .store-deals-header-text {
+  color: #ffffff;
+}
+
+[data-store='bim'] .store-deals-link {
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+[data-store='carrefoursa'] .store-deals-section {
+  background: linear-gradient(180deg, #dceaf7 0%, #eef3f8 100%);
+  border-radius: 0.75rem;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+[data-store='carrefoursa'] .store-deals-header {
+  background: linear-gradient(90deg, #003d7a 0%, #004e97 100%);
+  margin: calc(-1 * clamp(0.75rem, 2vw, 1.25rem));
+  margin-bottom: 0.75rem;
+  padding: clamp(0.625rem, 1.5vw, 1rem) clamp(0.75rem, 2vw, 1.25rem);
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+[data-store='carrefoursa'] .store-deals-header-text {
+  color: #ffffff;
+}
+
+[data-store='carrefoursa'] .store-deals-link {
+  color: #ffffff;
+  opacity: 0.95;
+}

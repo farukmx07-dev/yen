@@ -1,0 +1,44 @@
+# Coolify Docker Compose deploy
+# Coolify panel: New Resource -> Docker Compose -> Repository URL -> docker-compose.yaml
+
+version: '1.0'
+
+build:
+  dockerfile: Dockerfile
+  context: .
+
+services:
+  app:
+    port: 3000
+    healthcheck:
+      path: /api/health
+      interval: 30
+      timeout: 10
+      retries: 3
+    websocket: true
+
+required_env:
+  - MYSQL_HOST
+  - MYSQL_USER
+  - MYSQL_PASSWORD
+  - MYSQL_DATABASE
+  - JWT_SECRET
+  - NEXT_PUBLIC_APP_URL
+
+optional_env:
+  - NEXT_PUBLIC_BASE_URL
+  - SITE_URL
+  - MYSQL_PORT
+  - MYSQL_POOL_SIZE
+  - RUN_DB_MIGRATE
+  - ILETI_MERKEZI_API_URL
+  - ILETI_MERKEZI_KEY
+  - ILETI_MERKEZI_HASH
+  - ILETI_MERKEZI_SENDER
+  - SMS_BYPASS
+
+notes:
+  - Coolify Traefik SSL kullanir; WS_SSL_KEY / WS_SSL_CERT gerekmez
+  - WebSocket path: /ws (Coolify'da websocket: true)
+  - Ilk deploy icin RUN_DB_MIGRATE=true birak (data/*.json varsa MySQL'e aktarir)
+  - Sonraki deploylarda RUN_DB_MIGRATE=false yap
